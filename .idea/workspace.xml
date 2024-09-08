@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe6800f1-f9ae-4f21-8ca0-e24991e5b638" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/app/assets/photo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/badge.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/cap.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/bootstrap.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/css3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/html5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/javascript.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/nextjs.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/php.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/scroll.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/resume/icons/tailwind.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/skills/css.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/skills/html.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/skills/js.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/skills/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/skills/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/skills/tailwind.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/work/thumb1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/work/thumb2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/work/thumb3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectId" id="2lisglQk0TeNtXVVmZjYd0Z30Pk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/lionel/Desktop/react+nextjs/lionel-portfolio",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/usr/local/lib/node_modules/prettier",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe6800f1-f9ae-4f21-8ca0-e24991e5b638" name="Changes" comment="" />
+      <created>1725674345203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725674345203</updated>
+      <workItem from="1725674346680" duration="3277000" />
+      <workItem from="1725677639283" duration="2926000" />
+    </task>
+    <task id="LOCAL-00001" summary="desktop nav &amp; frame motion">
+      <option name="closed" value="true" />
+      <created>1725701451560</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725701451560</updated>
+    </task>
+    <task id="LOCAL-00002" summary="mobile nav &amp; hire me button">
+      <option name="closed" value="true" />
+      <created>1725710802185</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725710802185</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="mobile nav &amp; frame motion" />
+    <MESSAGE value="desktop nav &amp; frame motion" />
+    <MESSAGE value="mobile nav &amp; hire me button" />
+    <option name="LAST_COMMIT_MESSAGE" value="mobile nav &amp; hire me button" />
+  </component>
+</project>
