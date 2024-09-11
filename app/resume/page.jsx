@@ -2,7 +2,9 @@
 import { comma } from 'postcss/lib/list';
 import React from 'react';
 import {
+  FaAndroid,
   FaCss3,
+  FaEthereum,
   FaFigma,
   FaHtml5,
   FaJs,
@@ -24,7 +26,7 @@ import {
 const about = {
   title: 'About me',
   description:
-    'Lorem ipsum dolor sit amet consectetur adipiscing elit.Voluptates quibusdam,sunt explicabo inventore.',
+    "I'm Lionel Fang, a software developer with over 8 years of experience, specializing in web, Android, and blockchain technologies. Holding a Bachelor's Degree in Electronic Information Engineering (EIE) from Anhui, I'm proficient in HTML5, CSS3, JavaScript, React.js, Next.js, Tailwind CSS, Android development, and Ethereum blockchain. As a bilingual professional fluent in English and Chinese, I bring a global perspective to my work and am available for challenging freelance projects.",
   info: [
     {
       filedName: 'Name',
@@ -32,15 +34,15 @@ const about = {
     },
     {
       filedName: 'Phone',
-      fieldValue: '(+40) 321 654 678',
+      fieldValue: '(+1) 781 412 5154',
     },
     {
       filedName: 'Experience',
-      fieldValue: '12+ Years',
+      fieldValue: '8+ Years',
     },
     {
-      filedName: 'Skype',
-      fieldValue: 'luke.1',
+      filedName: 'Telegram',
+      fieldValue: 'lionel_fang',
     },
     {
       filedName: 'Nationality',
@@ -56,7 +58,7 @@ const about = {
     },
     {
       filedName: 'Languages',
-      fieldValue: 'English',
+      fieldValue: 'English, Mandarin',
     },
   ],
 };
@@ -93,9 +95,9 @@ const experience = {
       duration: '2018 - 2019',
     },
     {
-      company: 'Software Development Firm',
+      company: 'iFlytek',
       position: 'Junior Developer',
-      duration: '2017 - 2018',
+      duration: '2017 - 2019',
     },
   ],
 };
@@ -107,34 +109,19 @@ const education = {
     'Lorem ipsum dolor sit amet consectetur adipiscing elit.Voluptates quibusdam,sunt explicabo inventore.',
   items: [
     {
-      insitution: 'Online Course Platform',
-      degree: 'Full Stack Web Development Bootcamp',
-      duration: '2023',
-    },
-    {
-      insitution: 'Codecademy',
-      degree: 'Front-end Track',
-      duration: '2022',
-    },
-    {
-      insitution: 'Online Course',
-      degree: 'Programming Course',
-      duration: '2020 - 2021',
-    },
-    {
-      insitution: 'Tech Institute',
-      degree: 'Certified Web Developer',
-      duration: '2019',
-    },
-    {
-      insitution: 'Design School',
-      degree: 'Diploma in Graphic Design',
+      insitution: 'Self Teaching',
+      degree: 'CS Self Learning',
       duration: '2016 - 2018',
     },
     {
-      insitution: 'Community College',
-      degree: 'Associate Degree in Computer Science',
-      duration: '2014 - 2016',
+      insitution: 'Online Course',
+      degree: 'Android Programming',
+      duration: '2013 - 2014',
+    },
+    {
+      insitution: 'Anhui University',
+      degree: "Bachelor's Degree in EE",
+      duration: '2009 - 2013',
     },
   ],
 };
@@ -142,7 +129,7 @@ const education = {
 const skills = {
   title: 'My skills',
   description:
-    'Lorem ipsum dolor sit amet consectetur adipiscing elit.Voluptates quibusdam,sunt explicabo inventore.',
+    "I'm proficient in a wide range of technologies including HTML5, CSS3, JavaScript, React.js, Next.js, Tailwind CSS, Android development, and Ethereum blockchain.",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -169,12 +156,12 @@ const skills = {
       name: 'tailwind.css',
     },
     {
-      icon: <FaNodeJs />,
-      name: 'node.js',
+      icon: <FaAndroid />,
+      name: 'android',
     },
     {
-      icon: <FaFigma />,
-      name: 'figma',
+      icon: <FaEthereum />,
+      name: 'ethereum',
     },
   ],
 };
@@ -185,7 +172,7 @@ const Resume = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' },
+        transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
       }}
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >

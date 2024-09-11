@@ -19,7 +19,7 @@ const Header = () => {
         <div className="hidden xl:flex gap-8 items-center">
           <Nav />
           <Link href="/contact">
-            <Button>Hire me</Button>
+            <Button>Blog</Button>
           </Link>
         </div>
 

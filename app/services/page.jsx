@@ -10,28 +10,28 @@ const services = [
     num: '01',
     title: 'Web Development',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tenetur.',
+      'Expertise in modern frontend frameworks like React and Next.js. Crafting responsive, performant web applications with clean, maintainable code and intuitive user interfaces.',
     href: '',
   },
   {
     num: '02',
-    title: 'UI/UX Design',
+    title: 'Android Development',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tenetur.',
+      'Proficient in building robust Android applications using Java and Kotlin. Focusing on material design principles, efficient API integration, and optimized performance for various devices.',
     href: '',
   },
   {
     num: '03',
-    title: 'Logo Design',
+    title: 'Dapp',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tenetur.',
+      'Specialized in developing decentralized applications (DApps) that bridge web and blockchain technologies. Combining frontend expertise with smart contract integration for seamless, trustless user experiences.',
     href: '',
   },
   {
     num: '04',
-    title: 'SEO',
+    title: 'Blockchain',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tenetur.',
+      'Deep understanding of blockchain fundamentals and protocols. Experienced in implementing and optimizing smart contracts, with a focus on security and efficiency in decentralized systems.',
     href: '',
   },
 ];
@@ -45,7 +45,7 @@ const Services = () => {
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' },
+              transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
             }}
             className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
           >
