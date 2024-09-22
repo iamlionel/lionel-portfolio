@@ -9,6 +9,7 @@ import {
 import { usePathname, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import LinksList from './LinksList';
 
 const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
   const [openSections, setOpenSections] = useState({});
@@ -97,9 +98,10 @@ const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
               </AccordionTrigger>
               {items && (
                 <AccordionContent className="border-b-2 border-accent px-0 py-4">
-                  {items.map(({ id, to, item }) => {
-                    return <div key={id}>{id}</div>;
-                  })}
+                  <LinksList
+                    links={items}
+                    toggleMobileAccordion={toggleMobileAccordion}
+                  />
                 </AccordionContent>
               )}
             </AccordionItem>
