@@ -7,6 +7,8 @@ import matter from 'gray-matter';
 import { getParsedDate } from '@/utils/getParsedDate';
 import { getLastModifiedDate } from '@/utils/getLastModifiedDate';
 import ReactMarkdown from 'react-markdown';
+import DocsNav from '@/components/DocsNav';
+import DocumentNav from '@/components/DocumentNav';
 
 const MATTER_OPTIONTS = {
   engines: {
@@ -46,13 +48,54 @@ async function getDocContent(slug) {
   };
 }
 
+async function getNavLinks() {
+  const data = await fs.promises.readFile(
+    'data/documentation-links.yaml',
+    'utf8'
+  );
+  const parsedData = yaml.load(data, { schema: yaml.JSON_SCHEMA });
+  return Array.isArray(parsedData) ? parsedData : [];
+}
+
 export default async function DocPage({ params }) {
   const { slug = [] } = params;
   const { frontmatter, content, lastModified } = await getDocContent(slug);
   console.log(frontmatter, lastModified);
+  const navLinks = await getNavLinks();
   return (
-    <div>
-      <ReactMarkdown>{content}</ReactMarkdown>
-    </div>
+    <main className="px-4 mx-auto lg:px-0 lg:container">
+      <div className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-[310px_1fr]">
+        <div className="flex flex-cols">
+          <DocsNav navLinks={navLinks} />
+        </div>
+        <div className="flex flex-col pb-4 w-full" id="main-content">
+          <div className="flex flex-col mb-16">
+            {/* <Breadcrumbs /> */}
+            <h1 className="mt-4 mb-0 text-4xl font-bold">
+              {frontmatter.title}
+            </h1>
+            <span className="mt-0 text-sm text-gray-600">
+              Last edited on {lastModified}
+            </span>
+          </div>
+          <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_192px]">
+            <div className="max-w-[768px] w-full overflow-auto">
+              <div className="[&>*:first-child]:mt-0">
+                <ReactMarkdown
+                // remarkPlugins={[gfm]}
+                // rehypePlugins={[rehypeRaw]}
+                // components={TailwindUIRenderer(MDComponents)}
+                >
+                  {content}
+                </ReactMarkdown>
+              </div>
+            </div>
+            <div className="hidden xl:block">
+              <DocumentNav content={content} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
