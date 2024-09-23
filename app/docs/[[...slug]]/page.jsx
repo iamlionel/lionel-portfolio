@@ -36,8 +36,6 @@ async function getDocContent(slug) {
 
   const { data: frontmatter, content } = matter(file, MATTER_OPTIONTS);
   const lastModified = await getLastModifiedDate(filePath);
-
-  console.log(lastModified);
   return {
     frontmatter,
     content,
@@ -64,7 +62,7 @@ export default async function DocPage({ params }) {
   console.log(frontmatter, lastModified);
   const navLinks = await getNavLinks();
   return (
-    <main className="px-4 mx-auto lg:px-0 lg:container">
+    <main className="px-4 mx-auto lg:px-0 mx-4">
       <div className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-[310px_1fr]">
         <div className="flex flex-cols">
           <DocsNav navLinks={navLinks} />
@@ -79,7 +77,7 @@ export default async function DocPage({ params }) {
               Last edited on {lastModified}
             </span>
           </div>
-          <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_192px]">
+          <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_210px]">
             <div className="max-w-[768px] w-full overflow-auto">
               <div className="[&>*:first-child]:mt-0">
                 <ReactMarkdown
