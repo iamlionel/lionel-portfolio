@@ -9,6 +9,7 @@ import { getLastModifiedDate } from '@/utils/getLastModifiedDate';
 import ReactMarkdown from 'react-markdown';
 import DocsNav from '@/components/DocsNav';
 import DocumentNav from '@/components/DocumentNav';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const MATTER_OPTIONTS = {
   engines: {
@@ -70,7 +71,7 @@ export default async function DocPage({ params }) {
         </div>
         <div className="flex flex-col pb-4 w-full" id="main-content">
           <div className="flex flex-col mb-16">
-            {/* <Breadcrumbs /> */}
+            <Breadcrumbs />
             <h1 className="mt-4 mb-0 text-4xl font-bold">
               {frontmatter.title}
             </h1>
