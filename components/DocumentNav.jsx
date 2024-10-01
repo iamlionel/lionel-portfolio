@@ -12,7 +12,7 @@ const DocumentNav = ({ content }) => {
     .filter((item) => item);
   console.log(parsedHeadings);
   const [activeHash, setActiveHash] = useState('ubuntu-via-ppas');
-  return (
+  return parsedHeadings.length ? (
     <aside className="sticky h-[calc(100vh-3rem)] overflow-y-auto top-4">
       <h2 className="font-semibold">on this page</h2>
       <hr className="my-4 border-accent" />
@@ -33,7 +33,7 @@ const DocumentNav = ({ content }) => {
         ))}
       </nav>
     </aside>
-  );
+  ) : null;
 };
 
 export default DocumentNav;

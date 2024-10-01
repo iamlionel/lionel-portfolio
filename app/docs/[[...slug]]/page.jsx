@@ -7,9 +7,12 @@ import matter from 'gray-matter';
 import { getParsedDate } from '@/utils/getParsedDate';
 import { getLastModifiedDate } from '@/utils/getLastModifiedDate';
 import ReactMarkdown from 'react-markdown';
-import DocsNav from '@/components/DocsNav';
 import DocumentNav from '@/components/DocumentNav';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import MDComponents from '@/components/MDComponents';
+import DocsNav from '@/components/DocsNav';
 
 const MATTER_OPTIONTS = {
   engines: {
@@ -19,9 +22,11 @@ const MATTER_OPTIONTS = {
 
 export async function generateStaticParams() {
   const paths = getFileList('docs');
-  return paths.map((path) => {
-    slug: path.split('/').slice(1);
-  });
+  const params = paths.map((path) => ({
+    slug: path.split('/').slice(1),
+  }));
+  console.log(params);
+  return params;
 }
 
 async function getDocContent(slug) {
@@ -35,7 +40,8 @@ async function getDocContent(slug) {
   }
 
   const { data: frontmatter, content } = matter(file, MATTER_OPTIONTS);
-  const lastModified = await getLastModifiedDate(filePath);
+  // const lastModified = await getLastModifiedDate(filePath);
+  const lastModified = '';
   return {
     frontmatter,
     content,
@@ -59,10 +65,10 @@ async function getNavLinks() {
 export default async function DocPage({ params }) {
   const { slug = [] } = params;
   const { frontmatter, content, lastModified } = await getDocContent(slug);
-  console.log(frontmatter, lastModified);
+  // console.log(frontmatter, lastModified);
   const navLinks = await getNavLinks();
   return (
-    <main className="px-4 mx-auto lg:px-0 mx-4">
+    <main className="container mx-auto">
       <div className="grid gap-4 lg:gap-8 grid-cols-1 lg:grid-cols-[310px_1fr]">
         <div className="flex flex-cols">
           <DocsNav navLinks={navLinks} />
@@ -77,13 +83,13 @@ export default async function DocPage({ params }) {
               Last edited on {lastModified}
             </span>
           </div>
-          <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_210px]">
+          <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_260px]">
             <div className="max-w-[768px] w-full overflow-auto">
               <div className="[&>*:first-child]:mt-0">
                 <ReactMarkdown
-                // remarkPlugins={[gfm]}
-                // rehypePlugins={[rehypeRaw]}
-                // components={TailwindUIRenderer(MDComponents)}
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  components={MDComponents}
                 >
                   {content}
                 </ReactMarkdown>
