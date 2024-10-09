@@ -1,18 +1,18 @@
-import { getFileList } from '@/utils/getFileList';
-import React from 'react';
-import yaml from 'js-yaml';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { getParsedDate } from '@/utils/getParsedDate';
-import { getLastModifiedDate } from '@/utils/getLastModifiedDate';
-import ReactMarkdown from 'react-markdown';
-import DocumentNav from '@/components/DocumentNav';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import MDComponents from '@/components/MDComponents';
-import DocsNav from '@/components/DocsNav';
+import { getFileList } from "@/utils/getFileList";
+import React from "react";
+import yaml from "js-yaml";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { getParsedDate } from "@/utils/getParsedDate";
+import { getLastModifiedDate } from "@/utils/getLastModifiedDate";
+import ReactMarkdown from "react-markdown";
+import DocumentNav from "@/components/DocumentNav";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import MDComponents from "@/components/MDComponents";
+import DocsNav from "@/components/DocsNav";
 
 const MATTER_OPTIONTS = {
   engines: {
@@ -21,42 +21,42 @@ const MATTER_OPTIONTS = {
 };
 
 export async function generateStaticParams() {
-  const paths = getFileList('docs');
+  const paths = getFileList("docs");
   const params = paths.map((path) => ({
-    slug: path.split('/').slice(1),
+    slug: path.split("/").slice(1),
   }));
   console.log(params);
   return params;
 }
 
 async function getDocContent(slug) {
-  const filePath = path.join(process.cwd(), 'docs', ...slug);
+  const filePath = path.join(process.cwd(), "docs", ...slug);
   let file;
 
   try {
-    file = await fs.promises.readFile(`${filePath}/index.md`, 'utf-8');
+    file = await fs.promises.readFile(`${filePath}/index.md`, "utf-8");
   } catch (error) {
-    file = await fs.promises.readFile(`${filePath}.md`, 'utf-8');
+    file = await fs.promises.readFile(`${filePath}.md`, "utf-8");
   }
 
   const { data: frontmatter, content } = matter(file, MATTER_OPTIONTS);
   // const lastModified = await getLastModifiedDate(filePath);
-  const lastModified = '';
+  const lastModified = "";
   return {
     frontmatter,
     content,
     lastModified: getParsedDate(lastModified, {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
+      month: "long",
+      day: "numeric",
+      year: "numeric",
     }),
   };
 }
 
 async function getNavLinks() {
   const data = await fs.promises.readFile(
-    'data/documentation-links.yaml',
-    'utf8'
+    "data/documentation-links.yaml",
+    "utf8"
   );
   const parsedData = yaml.load(data, { schema: yaml.JSON_SCHEMA });
   return Array.isArray(parsedData) ? parsedData : [];
