@@ -1,14 +1,14 @@
-'use client';
-import React, { useState } from 'react';
-import DocsLinks from './DocsLinks';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+"use client";
+import React, { useState } from "react";
+import DocsLinks from "./DocsLinks";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../ui/accordion';
-import { ChevronDown } from 'lucide-react';
+} from "../ui/accordion";
+import { ChevronDown } from "lucide-react";
 
 const DocsNav = ({ navLinks }) => {
   const [isMobileAccordionOpen, setMobileAccordionOpen] = useState(false);
@@ -18,7 +18,7 @@ const DocsNav = ({ navLinks }) => {
   };
 
   return (
-    <aside className="w-full lg:w-[288px]">
+    <aside className="w-full lg:w-[320px]">
       {/* desktop docs links */}
       <div className="hidden lg:block">
         <DocsLinks
@@ -31,7 +31,7 @@ const DocsNav = ({ navLinks }) => {
       <div className="block lg:hidden">
         <Accordion
           type="single"
-          value={isMobileAccordionOpen ? 'documentation' : ''}
+          value={isMobileAccordionOpen ? "documentation" : ""}
         >
           <AccordionItem value="documentation">
             <AccordionTrigger

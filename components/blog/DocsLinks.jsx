@@ -1,14 +1,15 @@
-import { checkNavLinks } from '@/utils/checkNavLinks';
-import { useParams, usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { checkNavLinks } from "@/utils/checkNavLinks";
+import { useParams, usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../ui/accordion';
-import Link from 'next/link';
-import LinksList from '../LinksList';
+} from "../ui/accordion";
+import Link from "next/link";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import LinksList from "./LinksList";
 
 const DocsLinks = ({ navLinks, toggleMobileAccordion }) => {
   const [openSections, setOpenSections] = useState({});
@@ -24,7 +25,7 @@ const DocsLinks = ({ navLinks, toggleMobileAccordion }) => {
           ...acc,
           [navLink.id]: checkNavLinks({
             items: navLink.items,
-            pathCheck: pathname.split('#')[0],
+            pathCheck: pathname.split("#")[0],
           }),
         }),
         {}
@@ -44,13 +45,13 @@ const DocsLinks = ({ navLinks, toggleMobileAccordion }) => {
     <div className="border-2 border-accent">
       {navLinks.map(({ id, to, items }, idx) => {
         const isSectionActive = !!openSections[id];
-        console.log('id:' + id + ',' + isSectionActive);
 
         return (
           <Accordion
             key={id}
             type="single"
             value={openSections[id] ? id : undefined}
+            className="border-b-2 border-accent last:border-b-0"
           >
             <AccordionItem className="border-none" value={id}>
               <AccordionTrigger
@@ -58,8 +59,13 @@ const DocsLinks = ({ navLinks, toggleMobileAccordion }) => {
                   e.preventDefault();
                   handleSectionToggle(id);
                 }}
+                className={`flex justify-between p-0`}
               >
-                <div className={`flex p-4`}>
+                <div
+                  className={`flex-grow p-4 border-r-2 border-accent ${
+                    isSectionActive ? "bg-[#3d8470]" : ""
+                  } hover:bg-accent hover:text-primary flex items-center justify-start`}
+                >
                   {to ? (
                     <Link href={to}>
                       <span>{id}</span>
@@ -68,9 +74,18 @@ const DocsLinks = ({ navLinks, toggleMobileAccordion }) => {
                     <span>{id}</span>
                   )}
                 </div>
+                {items && (
+                  <div className="flex min-w-[61px] h-full items-center justify-center bg-[#040f0d]">
+                    {isSectionActive ? (
+                      <FaMinus className="w-6 h-6 text-accent" />
+                    ) : (
+                      <FaPlus className="w-6 h-6 text-accent" />
+                    )}
+                  </div>
+                )}
               </AccordionTrigger>
               {items && (
-                <AccordionContent>
+                <AccordionContent className="border-t-2 border-accent">
                   <div className="py-4">
                     <LinksList
                       links={items}
