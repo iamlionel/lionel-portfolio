@@ -2,7 +2,6 @@
 import { useActiveHash } from "@/app/hooks/useActiveHash";
 import { parseHeadingId } from "@/utils/parseHeadingId";
 import Link from "next/link";
-import { useState } from "react";
 
 const DocumentNav = ({ content }) => {
   const parsedHeadingIds = content

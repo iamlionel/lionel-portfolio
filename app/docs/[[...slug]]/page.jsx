@@ -10,7 +10,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
 import DocumentNav from "@/components/blog/DocumentNav";
-import MDComponents from "@/components/MDComponents";
+import MDComponents from "@/components/blog/MDComponents";
 
 const MATTER_OPTIONTS = {
   engines: {

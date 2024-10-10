@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import DocsLinks from "./DocsLinks";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import {
   Accordion,
   AccordionContent,
