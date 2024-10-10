@@ -7,12 +7,12 @@ import matter from "gray-matter";
 import { getParsedDate } from "@/utils/getParsedDate";
 import { getLastModifiedDate } from "@/utils/getLastModifiedDate";
 import ReactMarkdown from "react-markdown";
-import DocumentNav from "@/components/DocumentNav";
+import DocumentNav from "@/components/no-used/DocumentNav";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import MDComponents from "@/components/MDComponents";
-import DocsNav from "@/components/DocsNav";
+import DocsNav from "@/components/no-used/DocsNav";
 
 const MATTER_OPTIONTS = {
   engines: {
