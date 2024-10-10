@@ -9,6 +9,7 @@ import matter from "gray-matter";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
+import DocumentNav from "@/components/blog/DocumentNav";
 
 const MATTER_OPTIONTS = {
   engines: {
@@ -82,7 +83,9 @@ export default async function DocPage({ params }) {
                 </div>
               </div>
 
-              <div className="hidden lg:block">documentNav</div>
+              <div className="hidden lg:block">
+                <DocumentNav content={content} />
+              </div>
             </div>
           </div>
         </div>
