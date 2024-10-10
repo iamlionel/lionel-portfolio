@@ -10,6 +10,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
 import DocumentNav from "@/components/blog/DocumentNav";
+import MDComponents from "@/components/MDComponents";
 
 const MATTER_OPTIONTS = {
   engines: {
@@ -71,12 +72,13 @@ export default async function DocPage({ params }) {
               <span className="mt-0 text-sm text-gray-600">Last edited on</span>
             </div>
 
-            <div className="grid gap-4 lg:gap-4 grid-cols-1 xl:grid-cols-[1fr_260px]">
+            <div className="grid gap-4 lg:gap-4 grid-cols-1 xl:grid-cols-[1fr_210px]">
               <div className="max-w-[768px] w-full overflow-auto">
                 <div>
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
+                    components={MDComponents}
                   >
                     {content}
                   </ReactMarkdown>

@@ -1,4 +1,5 @@
 "use client";
+import { useActiveHash } from "@/app/hooks/useActiveHash";
 import { parseHeadingId } from "@/utils/parseHeadingId";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,9 +12,13 @@ const DocumentNav = ({ content }) => {
     .map((item) => parseHeadingId([item]))
     .filter((item) => item);
 
-  const [activeHash, setActiveHash] = useState("What does Geth do?");
+  console.log(parsedHeadingIds);
+  const activeHash = useActiveHash(
+    parsedHeadingIds.map((heading) => heading?.headingId)
+  );
+
   return parsedHeadingIds.length ? (
-    <aside className="sticky overflow-y-auto h-[calc(100vh-3rem)]">
+    <aside className="sticky h-[calc(100vh-3rem)] overflow-y-auto top-2">
       <h2>on this page</h2>
       <hr className="my-4 border-accent"></hr>
       <nav>
@@ -21,14 +26,14 @@ const DocumentNav = ({ content }) => {
           <Link
             key={`${idx} ${heading?.title}`}
             href={`#${heading?.headingId}`}
-            className={`inline-block w-full text-sm px-2 py-1 ${
+            className={`inline-block w-full text-sm  ${
               activeHash === heading?.headingId ? "text-white" : "text-accent"
             }`}
           >
             <span
-              className={`inline-block w-full text-sm px-2 py-1 ${
+              className={`inline-block w-full text-sm py-2 ${
                 activeHash === heading?.headingId ? "text-white" : "text-accent"
-              } hover:bg-accent hover:text-primary focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 rounded transition-colors duration-200`}
+              } hover:bg-accent hover:text-primary focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 transition-colors duration-200`}
             >
               {heading?.title}
             </span>

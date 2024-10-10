@@ -1,17 +1,17 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { parseHeadingId } from '@/utils/parseHeadingId';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { parseHeadingId } from "@/utils/parseHeadingId";
 
 const childrenIsAnImage = (children) => {
   // 实现检查children是否为图片的逻辑
-  return children && children[0] && children[0].type === 'img';
+  return children && children[0] && children[0].type === "img";
 };
 
 const MDComponents = {
   p: ({ children }) => {
     if (childrenIsAnImage(children)) {
-      const { src, alt = '' } = children[0].props;
+      const { src, alt = "" } = children[0].props;
       return (
         <div className="my-4">
           <Image
@@ -31,8 +31,8 @@ const MDComponents = {
 
   a: ({ children, href }) => {
     const isExternal =
-      href.startsWith('http') && !href.includes('yourwebsite.com');
-    const linkClass = 'text-accent hover:underline';
+      href.startsWith("http") && !href.includes("yourwebsite.com");
+    const linkClass = "text-accent hover:underline";
 
     if (isExternal) {
       return (
@@ -55,7 +55,7 @@ const MDComponents = {
   },
 
   h1: ({ children }) => {
-    const { children: parsedChildren, headingId } = parseHeadingId(children);
+    const { children: parsedChildren, headingId } = parseHeadingId([children]);
     return (
       <h1 id={headingId} className="text-4xl font-bold mt-8 mb-4">
         {parsedChildren}
@@ -64,7 +64,7 @@ const MDComponents = {
   },
 
   h2: ({ children }) => {
-    const { children: parsedChildren, headingId } = parseHeadingId(children);
+    const { children: parsedChildren, headingId } = parseHeadingId([children]);
     return (
       <h2 id={headingId} className="text-3xl font-semibold mt-6 mb-3">
         {parsedChildren}
@@ -73,7 +73,7 @@ const MDComponents = {
   },
 
   h3: ({ children }) => {
-    const { children: parsedChildren, headingId } = parseHeadingId(children);
+    const { children: parsedChildren, headingId } = parseHeadingId([children]);
     return (
       <h3 id={headingId} className="text-2xl font-medium mt-4 mb-2">
         {parsedChildren}
