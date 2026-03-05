@@ -1,0 +1,12 @@
+- id: Frontend
+  items:
+    - id: Introduction
+      to: /blog/frontend
+- id: AI
+  items:
+    - id: Introduction
+      to: /blog/ai
+- id: Mobile
+  items:
+    - id: Introduction
+      to: /blog/mobile

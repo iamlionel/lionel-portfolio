@@ -1,7 +1,6 @@
-'use client';
-import Image from 'next/image';
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Photo = () => {
   return (
@@ -10,7 +9,7 @@ const Photo = () => {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
+          transition: { delay: 0, duration: 0.1, ease: "easeIn" },
         }}
       >
         {/* image */}
@@ -18,7 +17,7 @@ const Photo = () => {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
+            transition: { delay: 0, duration: 0.1, ease: "easeIn" },
           }}
           className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] absolute"
         >
@@ -47,15 +46,15 @@ const Photo = () => {
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={{ strokeDasharray: '24 10 0 0' }}
+            initial={{ strokeDasharray: "24 10 0 0" }}
             animate={{
-              strokeDasharray: ['15 120 25 25', '16 25 92 72', '4 250 22 22'],
+              strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
               rotate: [120, 360],
             }}
             transition={{
               duration: 20,
               repeat: Infinity,
-              repeatType: 'reverse',
+              repeatType: "reverse",
             }}
           ></motion.circle>
         </motion.svg>

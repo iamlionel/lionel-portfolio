@@ -1,13 +1,13 @@
-'use client';
-import Photo from '@/components/Photo';
-import Socials from '@/components/Socials';
-import Stats from '@/components/Stats';
-import { Button } from '@/components/ui/button';
-import { FiDownload } from 'react-icons/fi';
+"use client";
+import Photo from "@/components/Photo";
+import Socials from "@/components/Socials";
+import Stats from "@/components/Stats";
+import { Button } from "@/components/ui/button";
+import { FiDownload } from "react-icons/fi";
 
 export default function Home() {
   const handleDownloadCV = () => {
-    window.open('/assets/resume.pdf', '_blank', 'noopener,noreferrer');
+    window.open("/assets/resume.pdf", "_blank", "noopener,noreferrer");
   };
 
   return (

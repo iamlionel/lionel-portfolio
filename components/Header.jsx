@@ -1,8 +1,8 @@
-'use client';
-import Link from 'next/link';
-import Nav from './Nav';
-import { Button } from './ui/button';
-import MobileNav from './MobileNav';
+"use client";
+import Link from "next/link";
+import MobileNav from "./MobileNav";
+import Nav from "./Nav";
+import { Button } from "./ui/button";
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const Header = () => {
         {/*  desktop nav & hire me*/}
         <div className="hidden xl:flex gap-8 items-center">
           <Nav />
-          <Link href="">
+          <Link href="/blog">
             <Button>Blog</Button>
           </Link>
         </div>

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lionel's Portfolio
+
+A personal portfolio and blog built with **Next.js 14**, featuring a Markdown-based blog system, interactive UI components, and a clean dark-themed design.
+
+## Features
+
+- 🏠 **Portfolio Pages** — Home, Services, Resume, Work, and Contact pages
+- 📝 **Markdown Blog** — File-based blog with full Markdown rendering, syntax highlighting, and auto-generated navigation
+- 📖 **Document Navigation** — Right-side TOC with scroll-aware active highlighting
+- 🎨 **Dark Theme** — Custom Tailwind CSS design system with accent color and smooth animations
+- ⚡ **Static Generation** — All blog pages pre-rendered at build time with `generateStaticParams`
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS + Framer Motion
+- **Markdown**: react-markdown, remark-gfm, rehype-raw, gray-matter
+- **UI**: Radix UI primitives, Lucide React icons
+- **Deployment**: Vercel
+
+## Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+│   └── blog/[[...slug]]/   # Dynamic blog routes
+├── blog/                   # Markdown content files
+│   ├── index.md
+│   ├── frontend/
+│   ├── AI/
+│   └── mobile/
+├── components/             # Reusable UI components
+│   ├── DocumentNav.jsx     # Right-side TOC navigation
+│   ├── DocsNav.jsx         # Left-side section navigation
+│   └── MDComponents.jsx    # Custom Markdown renderers
+└── utils/                  # Helper utilities
+    ├── parseHeadingId.js   # Parses {#id} syntax from headings
+    └── getKebabCaseFromName.js
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+## Blog Content
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Blog posts are written in Markdown and stored in the `blog/` directory. Each section has an `index.md` intro page. Navigation is configured via `blog/documentation-links.yaml`.
 
-## Learn More
+Headings support custom anchor IDs using the `{#id}` syntax:
 
-To learn more about Next.js, take a look at the following resources:
+```md
+## My Section {#my-section}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Deployed on [Vercel](https://vercel.com). Push to `main` to trigger a new deployment.

@@ -25,6 +25,7 @@
     @apply font-primary bg-primary text-white leading-loose;
   }
   :root {
+    color-scheme: dark;
     --radius: 0.5rem;
   }
   .h1 {
