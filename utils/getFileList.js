@@ -7,7 +7,7 @@ export const getFileList = (dirName) => {
   for (const item of items) {
     if (item.isDirectory()) {
       files = [...files, ...getFileList(`${dirName}/${item.name}`)];
-    } else {
+    } else if (item.name.endsWith(".md")) {
       files.push(`/${dirName}/${item.name}`);
     }
   }

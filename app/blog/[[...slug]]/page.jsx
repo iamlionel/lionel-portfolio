@@ -12,9 +12,13 @@ const MATTER_OPTIONTS = {
 
 export async function generateStaticParams() {
   const paths = getFileList("blog/en");
-  const params = paths.map((path) => ({
-    slug: path.replace("/blog/", "").split("/"),
-  }));
+  const params = paths
+    .filter((p) => p !== "/blog") // root index is handled by empty slug
+    .map((p) => ({
+      slug: p.replace("/blog/", "").split("/"),
+    }));
+  // Include the root /blog page (empty slug)
+  params.push({ slug: [] });
   return params;
 }
 
