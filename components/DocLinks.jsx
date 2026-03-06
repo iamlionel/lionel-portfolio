@@ -11,11 +11,14 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
+import { useTranslation } from "@/context/LanguageContext";
+
 const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
   const [openSections, setOpenSections] = useState({});
   const pathname = usePathname();
   const params = useParams();
   const slug = params.slug;
+  const { locale } = useTranslation();
 
   useEffect(() => {
     setOpenSections(

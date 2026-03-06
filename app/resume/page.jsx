@@ -17,85 +17,26 @@ import {
 } from "react-icons/fa";
 import { SiFastapi, SiFlutter, SiTailwindcss } from "react-icons/si";
 
-const about = {
-  title: "About me",
-  description:
-    "8 years of Android development experience at leading AI companies including iFlytek and AISpeech. Specialized in voice interaction, intelligent hardware, and EdTech. Proficient in Android architecture design, performance optimization, and cross-platform development. Now expanding into full-stack development with React, Next.js, and AI engineering.",
-  info: [
-    { filedName: "Name", fieldValue: "Lionel Fang" },
-    { filedName: "Experience", fieldValue: "8+ Years" },
-    { filedName: "Email", fieldValue: "fanglionel@gmail.com" },
-    { filedName: "Nationality", fieldValue: "China" },
-    { filedName: "Freelance", fieldValue: "Available" },
-    { filedName: "Languages", fieldValue: "English, Mandarin" },
-  ],
-};
+import { useTranslation } from "@/context/LanguageContext";
 
-const experience = {
-  icon: "/assets/resume/badge.svg",
-  title: "My experience",
-  description:
-    "8 years of professional Android development across AI, IoT, and EdTech industries, working at top-tier Chinese tech companies on million-user products.",
-  items: [
-    {
-      company: "AISpeech (思必驰)",
-      position: "Android Developer — In-car Voice Assistant",
-      duration: "2025.03 – 2025.09",
-    },
-    {
-      company: "iFlytek (科大讯飞)",
-      position: "Software Developer — AI TV Assistant",
-      duration: "2023.04 – 2025.03",
-    },
-    {
-      company: "Hisign (海鑫智圣)",
-      position: "Software Developer — Face Recognition SDK",
-      duration: "2020.11 – 2023.04",
-    },
-    {
-      company: "iFlytek Jiecheng (讯飞皆成)",
-      position: "Android Developer — Smart Education App",
-      duration: "2017.06 – 2020.10",
-    },
-  ],
-};
-
-const education = {
-  icon: "/assets/resume/cap.svg",
-  title: "My education",
-  description:
-    "Formal engineering education combined with continuous self-directed learning in modern software development.",
-  items: [
-    {
-      insitution: "Self-directed Learning",
-      degree: "Fullstack & AI Engineering",
-      duration: "2024 – Present",
-    },
-    {
-      insitution: "Anhui University (安徽大学)",
-      degree: "Bachelor's in Electronic Information Engineering",
-      duration: "2009 – 2013",
-    },
-  ],
-};
-
-const skills = {
-  title: "My skills",
-  description:
-    "Deep expertise in Android (Kotlin/Java) and growing proficiency across full-stack and AI engineering tools.",
-  skillList: [
-    { icon: <FaAndroid />, name: "Android" },
-    { icon: <SiFlutter />, name: "Flutter" },
-    { icon: <FaReact />, name: "React.js" },
-    { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-    { icon: <FaPython />, name: "Python" },
-    { icon: <SiFastapi />, name: "FastAPI" },
-    { icon: <FaGitAlt />, name: "Git / CI·CD" },
-    { icon: <FaDocker />, name: "Docker" },
-  ],
-};
+const skillList = [
+  { icon: <FaAndroid />, name: "Android" },
+  { icon: <SiFlutter />, name: "Flutter" },
+  { icon: <FaReact />, name: "React.js" },
+  { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+  { icon: <FaPython />, name: "Python" },
+  { icon: <SiFastapi />, name: "FastAPI" },
+  { icon: <FaGitAlt />, name: "Git / CI·CD" },
+  { icon: <FaDocker />, name: "Docker" },
+];
 
 const Resume = () => {
+  const { t } = useTranslation();
+  const about = t("resume.about");
+  const experience = t("resume.experience");
+  const education = t("resume.education");
+  const skills = t("resume.skills");
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -111,10 +52,10 @@ const Resume = () => {
           className="flex flex-col xl:flex-row gap-[60px]"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">About me</TabsTrigger>
+            <TabsTrigger value="experience">{t("nav.resume")}</TabsTrigger>
+            <TabsTrigger value="education">{education.title}</TabsTrigger>
+            <TabsTrigger value="skills">{skills.title}</TabsTrigger>
+            <TabsTrigger value="about">{about.title}</TabsTrigger>
           </TabsList>
 
           <div className="min-h-[70vh] w-full">
@@ -167,7 +108,7 @@ const Resume = () => {
                         </h3>
                         <div className="flex items-center gap-3">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                          <p className="text-white/60">{item.insitution}</p>
+                          <p className="text-white/60">{item.institution}</p>
                         </div>
                       </li>
                     ))}
@@ -186,7 +127,7 @@ const Resume = () => {
                   </p>
                 </div>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.skillList.map((skill, index) => (
+                  {skillList.map((skill, index) => (
                     <li key={index}>
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
@@ -222,8 +163,8 @@ const Resume = () => {
                       key={index}
                       className="flex items-center justify-center xl:justify-start gap-2"
                     >
-                      <span className="text-white/60">{item.filedName}</span>
-                      <span className="text-xl">{item.fieldValue}</span>
+                      <span className="text-white/60">{item.label}</span>
+                      <span className="text-xl">{item.value}</span>
                     </li>
                   ))}
                 </ul>

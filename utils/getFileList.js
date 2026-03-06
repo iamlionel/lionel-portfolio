@@ -14,5 +14,6 @@ export const getFileList = (dirName) => {
 
   return files
     .map((file) => file.replace(".md", ""))
-    .map((file) => file.replace("/index", ""));
+    .map((file) => file.replace("/index", ""))
+    .map((file) => file.replace("/blog/en", "/blog")); // Normalize to /blog
 };

@@ -5,7 +5,10 @@ import Stats from "@/components/Stats";
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
 
+import { useTranslation } from "@/context/LanguageContext";
+
 export default function Home() {
+  const { t } = useTranslation();
   const handleDownloadCV = () => {
     window.open("/assets/resume.pdf", "_blank", "noopener,noreferrer");
   };
@@ -15,13 +18,12 @@ export default function Home() {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-4 xl:pb-8">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span>Software Developer</span>
             <h1 className="h1 mb-4 mt-2">
-              Hello I'm <br /> <span className="text-accent">Lionel Fang</span>
+              {t("home.greeting")} <br />{" "}
+              <span className="text-accent">Lionel Fang</span>
             </h1>
             <p className="max-w-[500px] mb-6 text-white/80">
-              I build AI-powered full-stack products, bridging deep Android and
-              IoT engineering experience with modern web development.
+              {t("home.description")}
             </p>
 
             {/* btn and socials */}
@@ -32,7 +34,7 @@ export default function Home() {
                 className="uppercase flex items-center gap-2"
                 onClick={handleDownloadCV}
               >
-                <span>Download CV</span>
+                <span>{t("home.downloadCv")}</span>
                 <FiDownload className="text-xl" />
               </Button>
               <div className="mb-0 xl:mb-0">
@@ -47,7 +49,7 @@ export default function Home() {
             <Photo />
           </div>
         </div>
-        <div className="mt-8 xl:mt-0">
+        <div className="mt-12 xl:mt-16">
           <Stats />
         </div>
       </div>

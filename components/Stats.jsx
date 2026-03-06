@@ -1,27 +1,12 @@
 "use client";
 import CountUp from "react-countup";
 
-const stats = [
-  {
-    num: 8,
-    text: "Years of experience",
-  },
-  {
-    num: 10,
-    text: "Projects completed",
-  },
-  {
-    num: 8,
-    text: "Technologies mastered",
-  },
-  {
-    num: 1000,
-    text: "Cup of coffee",
-    suffix: "+",
-  },
-];
+import { useTranslation } from "@/context/LanguageContext";
 
 const Stats = () => {
+  const { t } = useTranslation();
+  const stats = t("home.stats");
+
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">

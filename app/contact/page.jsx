@@ -14,27 +14,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { FaMailBulk, FaPhoneAlt, FaTelegram } from "react-icons/fa";
 
+import { useTranslation } from "@/context/LanguageContext";
 import { useState } from "react";
 
-const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "(+1) 781 412 5154",
-  },
-  {
-    icon: <FaMailBulk />,
-    title: "Email",
-    description: "fanglionel@gmail.com",
-  },
-  {
-    icon: <FaTelegram />,
-    title: "Telegram",
-    description: "lionel_fang",
-  },
+const infoIcons = [
+  <FaPhoneAlt key="phone" />,
+  <FaMailBulk key="mail" />,
+  <FaTelegram key="telegram" />,
 ];
 
 const Contact = () => {
+  const { t } = useTranslation();
+  const translations_contact = t("contact");
+  const info = infoIcons.map((icon, index) => ({
+    icon,
+    title: translations_contact.info[index].title,
+    description: translations_contact.info[index].description,
+  }));
+
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -107,16 +104,13 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 p-6 bg-[#27272c] rounded-xl"
             >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
-              <p className="text-white/60">
-                Transform your vision into reality with cutting-edge software
-                solutions tailored to your needs.
-              </p>
+              <h3 className="text-4xl text-accent">{t("contact.title")}</h3>
+              <p className="text-white/60">{t("contact.subtitle")}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   name="firstname"
                   type="text"
-                  placeholder="Firstname"
+                  placeholder={t("contact.firstname")}
                   value={formData.firstname}
                   onChange={handleChange}
                   required
@@ -124,7 +118,7 @@ const Contact = () => {
                 <Input
                   name="lastname"
                   type="text"
-                  placeholder="Lastname"
+                  placeholder={t("contact.lastname")}
                   value={formData.lastname}
                   onChange={handleChange}
                   required
@@ -132,7 +126,7 @@ const Contact = () => {
                 <Input
                   name="email"
                   type="email"
-                  placeholder="Email address"
+                  placeholder={t("contact.email")}
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -140,27 +134,23 @@ const Contact = () => {
                 <Input
                   name="phone"
                   type="text"
-                  placeholder="Phone number"
+                  placeholder={t("contact.phone")}
                   value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
               <Select onValueChange={handleServiceSelect} required>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select a service" />
+                  <SelectValue placeholder={t("contact.selectService")} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="Web Development">
-                      Web Development
-                    </SelectItem>
-                    <SelectItem value="Android Development">
-                      Android Development
-                    </SelectItem>
-                    <SelectItem value="Dapp Development">
-                      Dapp Development
-                    </SelectItem>
+                    <SelectLabel>{t("contact.selectService")}</SelectLabel>
+                    {translations_contact.services.map((service, index) => (
+                      <SelectItem key={index} value={service}>
+                        {service}
+                      </SelectItem>
+                    ))}
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -168,7 +158,7 @@ const Contact = () => {
               <Textarea
                 name="message"
                 className="h-[200px]"
-                placeholder="Type your message here."
+                placeholder={t("contact.message")}
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -180,17 +170,17 @@ const Contact = () => {
                   className="max-w-40"
                   disabled={status === "loading"}
                 >
-                  {status === "loading" ? "Sending..." : "Send message"}
+                  {status === "loading"
+                    ? t("contact.sending")
+                    : t("contact.send")}
                 </Button>
                 {status === "success" && (
                   <p className="text-accent text-sm animate-pulse">
-                    Message sent successfully!
+                    {t("contact.success")}
                   </p>
                 )}
                 {status === "error" && (
-                  <p className="text-red-500 text-sm">
-                    Oops! Something went wrong.
-                  </p>
+                  <p className="text-red-500 text-sm">{t("contact.error")}</p>
                 )}
               </div>
             </form>

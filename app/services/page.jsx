@@ -3,38 +3,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowDownRight } from "react-icons/bs";
 
-const services = [
-  {
-    num: "01",
-    title: "Android Development",
-    description:
-      "Proficient in building robust Android applications using Java and Kotlin. Focusing on material design principles, efficient API integration, and optimized performance for various devices.",
-    href: "",
-  },
-  {
-    num: "02",
-    title: "Web Development",
-    description:
-      "Expertise in modern frontend frameworks like React and Next.js. Crafting responsive, performant web applications with clean, maintainable code and intuitive user interfaces.",
-    href: "",
-  },
-  {
-    num: "03",
-    title: "Backend Development",
-    description:
-      "Building scalable, high-performance server-side applications with Node.js and Python. Designing RESTful APIs, managing databases, and deploying containerized services with Docker for reliable production environments.",
-    href: "",
-  },
-  {
-    num: "04",
-    title: "AI Engineering",
-    description:
-      "Developing AI-powered applications leveraging large language models (LLMs), RAG pipelines, and intelligent agents. Integrating OpenAI, LangChain, and vector databases to build smart, context-aware product experiences.",
-    href: "",
-  },
-];
+import { useTranslation } from "@/context/LanguageContext";
 
 const Services = () => {
+  const { t } = useTranslation();
+  const services = t("services.items");
+
   return (
     <>
       <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
@@ -58,7 +32,7 @@ const Services = () => {
                       {service.num}
                     </div>
                     <Link
-                      href={service.href}
+                      href={service.href || ""}
                       className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
                     >
                       <BsArrowDownRight className="text-primary text-3xl" />

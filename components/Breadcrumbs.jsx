@@ -1,14 +1,12 @@
 "use client";
-import { ChevronRight } from "lucide-react";
+
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
-import React from "react";
+import { usePathname } from "next/navigation";
 
 const Breadcrumbs = () => {
   const pathname = usePathname();
   const pathSegments = pathname.split("/").filter((segment) => segment);
-  console.log(pathname);
-  console.log(pathSegments);
+
   return (
     <>
       {pathname !== "/docs" && pathSegments.length > 1 ? (
@@ -25,7 +23,7 @@ const Breadcrumbs = () => {
                       : "text-accent hover:underline"
                   } font-medium`}
                 >
-                  {segment}
+                  {segment.charAt(0).toUpperCase() + segment.slice(1)}
                 </Link>
               </li>
             ))}

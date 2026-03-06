@@ -1,0 +1,12 @@
+- id: "前端开发"
+  items:
+    - id: "介绍"
+      to: "/blog/frontend"
+- id: "AI 与 学习"
+  items:
+    - id: "介绍"
+      to: "/blog/ai"
+- id: "移动端开发"
+  items:
+    - id: "介绍"
+      to: "/blog/mobile"

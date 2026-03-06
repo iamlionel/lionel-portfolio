@@ -6,6 +6,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import { useTranslation } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,13 +14,11 @@ import { useState } from "react";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-const projects = [
+
+const projectsData = [
   {
     num: "01",
-    category: "Lyra Voice Assistant",
     title: "project 1",
-    description:
-      "Based on self-developed full-chain speech and language interaction technology，LLM（AISPEECH DFM）and big data, AISpeech has launched 1+N Reliable Distributed LLM Agent System, connecting language processing and model ecosystems, forming an ecological circle for the automotive vertical domain. ",
     stack: [
       { name: "Android" },
       { name: "Kotlin" },
@@ -32,10 +31,7 @@ const projects = [
   },
   {
     num: "02",
-    category: "AI TV Assistant",
     title: "project 2",
-    description:
-      "A smart TV voice interaction solution based on IFlyTek's advanced speech recognition and natural language processing. It enables seamless voice control, multi-device interconnection, and personalized smart home experiences for the big-screen ecosystem.",
     stack: [
       { name: "Android" },
       { name: "IOT" },
@@ -47,10 +43,7 @@ const projects = [
   },
   {
     num: "03",
-    category: "IFlytek Smart Assignments",
     title: "project 3",
-    description:
-      "An intelligent homework and assessment platform for K-12 education. Utilizing AI-driven data analysis to provide personalized learning paths, automated grading, and insightful performance tracking for both teachers and students.",
     stack: [
       { name: "Android" },
       { name: "Kotlin" },
@@ -62,10 +55,7 @@ const projects = [
   },
   {
     num: "04",
-    category: "Biometric Intelligent Hardware & SDK",
     title: "project 4",
-    description:
-      "A comprehensive biometric identification solution integrating facial recognition and fingerprint scanning with hardware systems. Built using Android and Kotlin to provide secure, high-performance access control and attendance management for enterprise environments.",
     stack: [
       { name: "Android" },
       { name: "Kotlin" },
@@ -79,6 +69,14 @@ const projects = [
 ];
 
 const Work = () => {
+  const { t } = useTranslation();
+  const translations_work = t("work");
+  const projects = projectsData.map((project, index) => ({
+    ...project,
+    category: translations_work.projects[index].category,
+    description: translations_work.projects[index].description,
+  }));
+
   const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper) => {
@@ -105,7 +103,7 @@ const Work = () => {
                 {project.category}
               </h2>
               <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
+              <ul className="flex flex-wrap gap-4">
                 {project.stack.map((item, index) => {
                   return (
                     <li key={index} className="text-xl text-accent">
@@ -128,7 +126,7 @@ const Work = () => {
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Live Project</p>
+                        <p>{translations_work.liveProject}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -145,7 +143,7 @@ const Work = () => {
                           <BsGithub className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Github repository</p>
+                          <p>{translations_work.githubRepo}</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>

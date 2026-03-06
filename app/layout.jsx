@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { LanguageProvider } from "@/context/LanguageContext";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -18,8 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${jetbrainsMono.variable}`}>
-        <Header />
-        {children}
+        <LanguageProvider>
+          <Header />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
