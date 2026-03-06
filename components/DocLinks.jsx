@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { LuMinus, LuPlus } from "react-icons/lu";
 import LinksList from "./LinksList";
 import {
   Accordion,
@@ -39,7 +39,7 @@ const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
   };
 
   return (
-    <div className="border-[2px] border-accent">
+    <div className="border-[2px] border-accent rounded-sm overflow-hidden bg-transparent">
       {navLinks.map(({ id, to, items }, idx) => {
         const isSectionActive = !!openSections[id];
 
@@ -55,7 +55,7 @@ const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
               <AccordionTrigger
                 className={`flex justify-between p-0 group ${
                   idx !== navLinks.length - 1 || isSectionActive
-                    ? "border-b-2 border-accent"
+                    ? "border-b-[2px] border-accent"
                     : ""
                 }`}
                 onClick={(e) => {
@@ -64,38 +64,44 @@ const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
                 }}
               >
                 <div
-                  className={`flex-1 p-4 ${
-                    items && "border-r-2 border-accent"
-                  } ${isSectionActive ? "text-primary" : "text-accent"} ${
-                    isSectionActive ? "bg-[#008670]" : "bg-transparent"
-                  } group-hover:bg-[#00fecf] group-hover:text-primary`}
+                  className={`flex-1 py-3 px-4 font-secondary text-[15px] font-semibold text-left ${
+                    items && "border-r-[2px] border-accent"
+                  } ${
+                    isSectionActive
+                      ? "bg-accent/40 text-primary"
+                      : "bg-transparent text-accent"
+                  } transition-colors duration-200`}
                 >
                   {to ? (
                     <Link
                       href={to}
-                      className="no-underline flex"
+                      className="no-underline flex items-center h-full"
                       onClick={toggleMobileAccordion}
                     >
                       <span>{id}</span>
                     </Link>
                   ) : (
-                    <span className="flex justify-start">{id}</span>
+                    <span className="flex justify-start items-center h-full">
+                      {id}
+                    </span>
                   )}
                 </div>
 
                 {items && (
-                  <div className="min-w-[66px] flex justify-center items-center">
+                  <div
+                    className={`min-w-[50px] flex justify-center items-center bg-transparent`}
+                  >
                     {isSectionActive ? (
-                      <FaMinus className="w-6 h-6 text-accent" />
+                      <LuMinus className="w-5 h-5 text-accent" />
                     ) : (
-                      <FaPlus className="w-6 h-6 text-accent" />
+                      <LuPlus className="w-5 h-5 text-accent" />
                     )}
                   </div>
                 )}
               </AccordionTrigger>
               {items && (
                 <AccordionContent
-                  className={`px-0 py-4 ${idx !== navLinks.length - 1 ? "border-b-2 border-accent" : ""}`}
+                  className={`px-0 py-4 bg-transparent ${idx !== navLinks.length - 1 ? "border-b-[2px] border-accent" : ""}`}
                 >
                   <LinksList
                     links={items}

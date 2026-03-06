@@ -2,11 +2,11 @@
   items:
     - id: "React Fiber"
       to: "/blog/frontend/react-fiber"
-- id: "AI"
-  items:
-    - id: "Transformer"
-      to: "/blog/ai/transformer"
 - id: "Android"
   items:
     - id: "Kotlin 协程"
       to: "/blog/mobile/coroutine"
+- id: "AI"
+  items:
+    - id: "Transformer"
+      to: "/blog/ai/transformer"

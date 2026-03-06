@@ -1,38 +1,43 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { parseHeadingId } from "@/utils/parseHeadingId";
+import Image from "next/image";
+import Link from "next/link";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const childrenIsAnImage = (children) => {
-  // 实现检查children是否为图片的逻辑
   return children && children[0] && children[0].type === "img";
 };
 
 const MDComponents = {
+  // paragraphs
   p: ({ children }) => {
     if (childrenIsAnImage(children)) {
       const { src, alt = "" } = children[0].props;
       return (
-        <div className="my-4">
+        <div className="my-[40px]">
           <Image
             src={src}
             alt={alt}
-            width={700}
-            height={400}
-            className="rounded-lg"
+            width={800}
+            height={450}
+            className="rounded-sm"
           />
         </div>
       );
     }
     return (
-      <p className="mb-4 text-white leading-relaxed font-sans">{children}</p>
+      <p className="mb-4 leading-[1.6] text-white/90 font-inter text-[16px]">
+        {children}
+      </p>
     );
   },
 
+  // links
   a: ({ children, href }) => {
     const isExternal =
-      href.startsWith("http") && !href.includes("yourwebsite.com");
-    const linkClass = "text-accent hover:underline";
+      href.startsWith("http") && !href.includes("geth.ethereum.org");
+    const linkClass =
+      "text-accent transition-colors border-b border-transparent hover:border-accent";
 
     if (isExternal) {
       return (
@@ -54,20 +59,26 @@ const MDComponents = {
     }
   },
 
+  // headings
   h1: ({ children }) => {
     const { children: parsedChildren, headingId } = parseHeadingId(children);
     return (
-      <h1 id={headingId} className="text-4xl font-bold mt-8 mb-4">
+      <h1
+        id={headingId}
+        className="text-[32px] md:text-[40px] font-medium mb-4 font-secondary tracking-tight text-white"
+      >
         {parsedChildren}
       </h1>
     );
   },
 
   h2: ({ children }) => {
-    console.log("H2 CHILDREN:", children);
     const { children: parsedChildren, headingId } = parseHeadingId(children);
     return (
-      <h2 id={headingId} className="text-3xl font-semibold mt-6 mb-3">
+      <h2
+        id={headingId}
+        className="text-[24px] md:text-[30px] font-normal mt-6 mb-4 font-secondary text-white"
+      >
         {parsedChildren}
       </h2>
     );
@@ -76,43 +87,98 @@ const MDComponents = {
   h3: ({ children }) => {
     const { children: parsedChildren, headingId } = parseHeadingId(children);
     return (
-      <h3 id={headingId} className="text-2xl font-medium mt-4 mb-2">
+      <h3
+        id={headingId}
+        className="text-[20px] md:text-[24px] font-normal mt-4 mb-2 font-secondary text-white"
+      >
         {parsedChildren}
       </h3>
     );
   },
 
+  h4: ({ children }) => {
+    const { children: parsedChildren, headingId } = parseHeadingId(children);
+    return (
+      <h4
+        id={headingId}
+        className="text-[18px] md:text-[20px] font-normal mb-2 font-secondary text-white"
+      >
+        {parsedChildren}
+      </h4>
+    );
+  },
+
+  // tables
   table: ({ children }) => (
-    <div className="overflow-x-auto my-4">
-      <table className="min-w-full divide-y divide-gray-200">{children}</table>
+    <div className="flex overflow-x-auto mt-8 mb-4 border border-white/10 rounded-sm">
+      <table className="min-w-full text-sm text-left font-inter divide-y divide-white/10">
+        {children}
+      </table>
     </div>
   ),
 
-  pre: ({ children }) => (
-    <pre className="bg-[#001626] p-4 rounded-lg overflow-x-auto my-4">
-      {children}
-    </pre>
+  thead: ({ children }) => <thead className="bg-white/5">{children}</thead>,
+  th: ({ children }) => <th className="px-4 py-3 font-semibold">{children}</th>,
+  td: ({ children }) => (
+    <td className="px-4 py-3 border-t border-white/5">{children}</td>
   ),
 
-  code: ({ children, className }) => (
-    <code className={`bg-[#001626] rounded px-1 py-0.5 ${className}`}>
-      {children}
-    </code>
-  ),
+  // pre
+  pre: ({ children }) => {
+    return <div className="mb-4">{children}</div>;
+  },
 
+  // code
+  code: ({ node, inline, className, children, ...props }) => {
+    const match = /language-(\w+)/.exec(className || "");
+    const language = match ? match[1] : "";
+
+    if (inline || !match) {
+      return (
+        <code className="text-white font-secondary p-1 text-[0.9em] mx-[2px] bg-white/5 px-1 rounded-sm">
+          {children}
+        </code>
+      );
+    }
+
+    return (
+      <SyntaxHighlighter
+        language={language}
+        style={vscDarkPlus}
+        PreTag="div"
+        customStyle={{
+          margin: 0,
+          background: "#232329",
+          padding: "20px",
+          borderRadius: "4px",
+          fontSize: "14px",
+          border: "1px solid rgba(255, 255, 255, 0.05)",
+        }}
+        {...props}
+      >
+        {String(children).replace(/\n$/, "")}
+      </SyntaxHighlighter>
+    );
+  },
+
+  // lists
   ul: ({ children }) => (
-    <ul className="list-disc list-inside mb-4">{children}</ul>
+    <ul className="list-disc mb-6 px-6 space-y-2 text-white/90">{children}</ul>
   ),
 
   ol: ({ children }) => (
-    <ol className="list-decimal list-inside mb-4">{children}</ol>
+    <ol className="list-decimal mb-6 px-6 space-y-2 text-white/90">
+      {children}
+    </ol>
   ),
 
-  li: ({ children }) => <li className="mb-1">{children}</li>,
+  li: ({ children }) => (
+    <li className="text-[16px] leading-[1.6] pl-2">{children}</li>
+  ),
 
-  // 自定义组件，如Note
+  // Note component
   note: ({ children }) => (
-    <div className="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4">
+    <div className="bg-accent/5 border-l-[4px] border-accent text-accent/90 p-[20px] my-[24px] rounded-r-sm font-inter">
       {children}
     </div>
   ),

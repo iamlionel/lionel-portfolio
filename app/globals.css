@@ -22,25 +22,33 @@
 
 @layer base {
   body {
-    @apply font-primary bg-primary text-white leading-loose;
+    @apply font-light bg-primary text-white leading-loose;
   }
   :root {
     color-scheme: dark;
     --radius: 0.5rem;
   }
   .h1 {
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+    @apply text-[48px] xl:text-[80px] leading-[1.1] font-normal font-secondary;
   }
   .h2 {
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    @apply text-[36px] xl:text-[48px] leading-[1.1] font-normal font-secondary;
   }
   .h3 {
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+    @apply text-[20px] xl:text-[24px] leading-[1.1] font-normal font-secondary;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-secondary;
   }
   .text-outline {
     -webkit-text-stroke: 1px #ffffff;
   }
   .text-outline-hover {
-    -webkit-text-stroke: 1px #00ff99;
+    -webkit-text-stroke: 1px #74fad1;
   }
 }

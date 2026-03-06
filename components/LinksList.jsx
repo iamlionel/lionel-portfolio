@@ -9,7 +9,7 @@ const LinksList = ({ links, toggleMobileAccordion }) => {
   const slug = params.slug;
 
   return (
-    <div className="px-4">
+    <div>
       {links.map(({ id, to, items }) => {
         const split = to?.split("/");
         const isActive =
@@ -19,38 +19,50 @@ const LinksList = ({ links, toggleMobileAccordion }) => {
           return (
             <div
               key={id}
-              className={`group pb-${
-                items ? "6" : "0"
-              } hover:bg-accent hover:text-white p-2 cursor-pointer`}
+              className={`group hover:bg-white/5 py-1.5 px-6 cursor-pointer`}
             >
-              <Link href={to} onClick={toggleMobileAccordion} className="block">
+              <Link
+                href={to}
+                onClick={toggleMobileAccordion}
+                className="flex items-center"
+              >
+                {isActive && (
+                  <span className="w-2.5 h-2.5 bg-accent mr-3 flex-shrink-0" />
+                )}
                 <span
-                  className={`relative inline-block ${
-                    items || isActive ? "text-accent" : "text-white"
-                  }  ${
-                    isActive ? 'before:content-["■"]' : ""
-                  } group-hover:text-primary`}
+                  className={`text-[15px] font-secondary font-normal ${
+                    isActive ? "text-accent" : "text-white"
+                  } transition-colors duration-200`}
                 >
                   {id}
                 </span>
               </Link>
               {items && (
-                <LinksList
-                  links={items}
-                  toggleMobileAccordion={toggleMobileAccordion}
-                />
+                <div className="mt-2">
+                  <LinksList
+                    links={items}
+                    toggleMobileAccordion={toggleMobileAccordion}
+                  />
+                </div>
               )}
             </div>
           );
         } else {
           return (
-            <div key={id} className="p-2">
-              <span>{id}</span>
+            <div
+              key={id}
+              className={`py-1.5 px-6 font-secondary ${
+                isActive ? "text-accent" : "text-white"
+              }`}
+            >
+              <span className="text-[15px] font-normal">{id}</span>
               {items && (
-                <LinksList
-                  links={items}
-                  toggleMobileAccordion={toggleMobileAccordion}
-                />
+                <div className="mt-2">
+                  <LinksList
+                    links={items}
+                    toggleMobileAccordion={toggleMobileAccordion}
+                  />
+                </div>
               )}
             </div>
           );
