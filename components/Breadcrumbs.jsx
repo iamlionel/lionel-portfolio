@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
 
   return (
     <>
-      {pathname !== "/docs" && pathSegments.length > 1 ? (
+      {pathname !== "/docs" && pathSegments.length > 1 && (
         <nav className="flex">
           <ol className="inline-flex">
             {pathSegments.map((segment, idx) => (
@@ -29,8 +29,6 @@ const Breadcrumbs = () => {
             ))}
           </ol>
         </nav>
-      ) : (
-        <div className="h-6"></div>
       )}
     </>
   );

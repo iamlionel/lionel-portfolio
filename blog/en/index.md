@@ -5,8 +5,6 @@ excerpt: "My first blog post! A brief introduction about who I am and what I'll 
 tags: ["Introduction", "Personal"]
 ---
 
-# Hello World!
-
 Welcome to my blog! I'm excited to finally have a space where I can share my thoughts, experiences, and learnings in the world of software development.
 
 ## What I Share {#what-i-share}
@@ -18,13 +16,3 @@ This is where I document my technical growth and everyday thoughts. Topics inclu
 - **💡 Personal Thoughts**: My take on tech trends, industry shifts, and career growth — not authoritative, just genuine
 - **🛠️ Tools & Productivity**: Dev tools, VSCode setups, terminal tricks, and automation scripts that make life smoother
 - **🌱 Life & Reflections**: Thoughts beyond work — reading notes, travel stories, and finding balance in this fast-moving world
-
-## Why Blog?
-
-Writing helps me organize my thoughts and solidify my understanding of complex topics. If my posts help even one person along the way, that's a bonus!
-
-## Let's Connect
-
-Feel free to reach out if you have questions, suggestions for topics, or just want to say hello. I'd love to hear from you.
-
-Thanks for reading, and stay tuned for more!

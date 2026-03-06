@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import LinksList from "./LinksList";
@@ -11,14 +11,9 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
-import { useTranslation } from "@/context/LanguageContext";
-
 const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
   const [openSections, setOpenSections] = useState({});
   const pathname = usePathname();
-  const params = useParams();
-  const slug = params.slug;
-  const { locale } = useTranslation();
 
   useEffect(() => {
     setOpenSections(
@@ -46,9 +41,6 @@ const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
   return (
     <div className="border-[2px] border-accent">
       {navLinks.map(({ id, to, items }, idx) => {
-        const split = to?.split("/");
-        const isActive =
-          slug && split && split[split.length - 1] === slug[slug.length - 1];
         const isSectionActive = !!openSections[id];
 
         return (

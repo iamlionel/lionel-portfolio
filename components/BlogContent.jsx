@@ -9,6 +9,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 import DocsNav from "@/components/DocsNav";
+import { getParsedDate } from "@/utils/getParsedDate";
 
 export default function BlogContent({
   contentEn,
@@ -18,7 +19,7 @@ export default function BlogContent({
   navLinksEn,
   navLinksZh,
 }) {
-  const { locale } = useTranslation();
+  const { locale, t } = useTranslation();
   const isZh = locale === "zh" && frontmatterZh?.title;
 
   const content = isZh ? contentZh : contentEn;
@@ -31,9 +32,19 @@ export default function BlogContent({
         <DocsNav navLinks={navLinks} />
       </div>
       <div className="flex flex-col pb-4 w-full" id="main-content">
-        <div className="flex flex-col mb-16">
+        <div className="flex flex-col mb-12">
           <Breadcrumbs />
           <h1 className="mt-4 mb-0 text-4xl font-bold">{frontmatter.title}</h1>
+          {frontmatter.date && (
+            <span className="mt-2 text-sm text-white/60">
+              {t("blog.lastEdited")}{" "}
+              {getParsedDate(frontmatter.date, {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </span>
+          )}
         </div>
         <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_260px]">
           <div className="max-w-[768px] w-full overflow-auto">

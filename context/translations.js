@@ -169,6 +169,9 @@ export const translations = {
         { title: "Telegram", description: "lionel_fang" },
       ],
     },
+    blog: {
+      lastEdited: "Last edited on",
+    },
   },
   zh: {
     nav: {
@@ -333,6 +336,9 @@ export const translations = {
         { title: "邮箱", description: "flf241892@sina.cn" },
         { title: "Telegram", description: "lionel_fang" },
       ],
+    },
+    blog: {
+      lastEdited: "最后编辑于",
     },
   },
 };
