@@ -1,38 +1,36 @@
-'use client';
-import { Description } from '@radix-ui/react-dialog';
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { BsArrowDownRight } from 'react-icons/bs';
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { BsArrowDownRight } from "react-icons/bs";
 
 const services = [
   {
-    num: '01',
-    title: 'Web Development',
+    num: "01",
+    title: "Android Development",
     description:
-      'Expertise in modern frontend frameworks like React and Next.js. Crafting responsive, performant web applications with clean, maintainable code and intuitive user interfaces.',
-    href: '',
+      "Proficient in building robust Android applications using Java and Kotlin. Focusing on material design principles, efficient API integration, and optimized performance for various devices.",
+    href: "",
   },
   {
-    num: '02',
-    title: 'Android Development',
+    num: "02",
+    title: "Web Development",
     description:
-      'Proficient in building robust Android applications using Java and Kotlin. Focusing on material design principles, efficient API integration, and optimized performance for various devices.',
-    href: '',
+      "Expertise in modern frontend frameworks like React and Next.js. Crafting responsive, performant web applications with clean, maintainable code and intuitive user interfaces.",
+    href: "",
   },
   {
-    num: '03',
-    title: 'Dapp',
+    num: "03",
+    title: "Backend Development",
     description:
-      'Specialized in developing decentralized applications (DApps) that bridge web and blockchain technologies. Combining frontend expertise with smart contract integration for seamless, trustless user experiences.',
-    href: '',
+      "Building scalable, high-performance server-side applications with Node.js and Python. Designing RESTful APIs, managing databases, and deploying containerized services with Docker for reliable production environments.",
+    href: "",
   },
   {
-    num: '04',
-    title: 'Blockchain',
+    num: "04",
+    title: "AI Engineering",
     description:
-      'Deep understanding of blockchain fundamentals and protocols. Experienced in implementing and optimizing smart contracts, with a focus on security and efficiency in decentralized systems.',
-    href: '',
+      "Developing AI-powered applications leveraging large language models (LLMs), RAG pipelines, and intelligent agents. Integrating OpenAI, LangChain, and vector databases to build smart, context-aware product experiences.",
+    href: "",
   },
 ];
 
@@ -45,7 +43,7 @@ const Services = () => {
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
+              transition: { delay: 0, duration: 0.1, ease: "easeIn" },
             }}
             className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
           >

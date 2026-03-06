@@ -27,8 +27,8 @@ const DocLinks = ({ navLinks, toggleMobileAccordion }) => {
             pathCheck: pathname.split("#")[0],
           }),
         }),
-        {},
-      ),
+        {}
+      )
     );
   }, [pathname, navLinks]);
 

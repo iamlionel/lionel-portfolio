@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from "fs";
 
 export const getFileList = (dirName) => {
   let files = [];
@@ -13,6 +13,6 @@ export const getFileList = (dirName) => {
   }
 
   return files
-    .map((file) => file.replace('.md', ''))
-    .map((file) => file.replace('/index', ''));
+    .map((file) => file.replace(".md", ""))
+    .map((file) => file.replace("/index", ""));
 };

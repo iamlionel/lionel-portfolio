@@ -11,17 +11,17 @@ export default function Home() {
   };
 
   return (
-    <section className="h-full">
+    <section className="h-full xl:h-[calc(100vh-140px)] flex flex-col justify-center">
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-4 xl:pb-8">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span>Software Developer</span>
-            <h1 className="h1 mb-6 mt-4">
+            <h1 className="h1 mb-4 mt-2">
               Hello I'm <br /> <span className="text-accent">Lionel Fang</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
-              I excel at crafting innovative digital solutions across web,
-              mobile, and blockchain platforms.
+            <p className="max-w-[500px] mb-6 text-white/80">
+              I build AI-powered full-stack products, bridging deep Android and
+              IoT engineering experience with modern web development.
             </p>
 
             {/* btn and socials */}
@@ -35,7 +35,7 @@ export default function Home() {
                 <span>Download CV</span>
                 <FiDownload className="text-xl" />
               </Button>
-              <div className="mb-8 xl:mb-0">
+              <div className="mb-0 xl:mb-0">
                 <Socials
                   containerStyles="flex gap-6"
                   iconStyles="w-9 h-9 border border-accent rounded-full items-center justify-center flex text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
@@ -43,11 +43,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="order-1 xl:order-none mb-8 xl:mb-0">
+          <div className="order-1 xl:order-none mb-4 xl:mb-0">
             <Photo />
           </div>
         </div>
-        <Stats />
+        <div className="mt-8 xl:mt-0">
+          <Stats />
+        </div>
       </div>
     </section>
   );

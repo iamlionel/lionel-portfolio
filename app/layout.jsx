@@ -1,13 +1,17 @@
-import { JetBrains_Mono } from 'next/font/google';
-import './globals.css';
-import Header from '@/components/Header';
-import PageTransition from '@/components/PageTransition';
-import StairTransition from '@/components/StairTransition';
+import Header from "@/components/Header";
+import { JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+
+export const metadata = {
+  title: "Lionel's Space",
+  description:
+    "Product Engineer specializing in AI voice interaction and full-stack development.",
+};
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
-  variable: '--font-jetbrainsMono',
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrainsMono",
 });
 
 export default function RootLayout({ children }) {

@@ -54,7 +54,7 @@ async function getDocContent(slug) {
 async function getNavLinks() {
   const data = await fs.promises.readFile(
     "blog/documentation-links.yaml",
-    "utf8",
+    "utf8"
   );
   const parsedData = yaml.load(data, { schema: yaml.JSON_SCHEMA });
   return Array.isArray(parsedData) ? parsedData : [];
@@ -78,9 +78,9 @@ export default async function DocPage({ params }) {
             <h1 className="mt-4 mb-0 text-4xl font-bold">
               {frontmatter.title}
             </h1>
-            <span className="mt-0 text-sm text-gray-600">
+            {/* <span className="mt-0 text-sm text-gray-600">
               Last edited on {lastModified}
-            </span>
+            </span> */}
           </div>
           <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_260px]">
             <div className="max-w-[768px] w-full overflow-auto">

@@ -1,5 +1,5 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 import {
   Select,
   SelectContent,
@@ -8,7 +8,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -16,27 +16,27 @@ import {
   FaEvernote,
   FaTelegram,
   FaMailBulk,
-} from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
+} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const info = [
   {
     icon: <FaPhoneAlt />,
-    title: 'Phone',
-    description: '(+1) 781 412 5154',
+    title: "Phone",
+    description: "(+1) 781 412 5154",
   },
   {
     icon: <FaMailBulk />,
-    title: 'Email',
-    description: 'fanglionel@gmail.com',
+    title: "Email",
+    description: "fanglionel@gmail.com",
   },
   {
     icon: <FaTelegram />,
-    title: 'Telegram',
-    description: 'lionel_fang',
+    title: "Telegram",
+    description: "lionel_fang",
   },
 ];
 
@@ -46,7 +46,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
+        transition: { delay: 0, duration: 0.1, ease: "easeIn" },
       }}
       className="py-1"
     >

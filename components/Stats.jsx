@@ -1,23 +1,23 @@
-'use client';
-import React from 'react';
-import CountUp from 'react-countup';
+"use client";
+import CountUp from "react-countup";
 
 const stats = [
   {
     num: 8,
-    text: 'Years of experience',
+    text: "Years of experience",
   },
   {
-    num: 16,
-    text: 'Projects completed',
+    num: 10,
+    text: "Projects completed",
   },
   {
     num: 8,
-    text: 'Technologies mastered',
+    text: "Technologies mastered",
   },
   {
-    num: 500,
-    text: 'Code commits',
+    num: 1000,
+    text: "Cup of coffee",
+    suffix: "+",
   },
 ];
 
@@ -36,11 +36,12 @@ const Stats = () => {
                   end={item.num}
                   duration={5}
                   delay={0.1}
+                  suffix={item.suffix}
                   className="text-4xl xl:text-6xl font-extrabold"
                 />
                 <p
                   className={`${
-                    item.text.length < 15 ? 'max-w-[100px]' : 'max-w-[150px]'
+                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
                   } leading-snug text-white/80`}
                 >
                   {item.text}

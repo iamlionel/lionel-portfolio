@@ -1,17 +1,17 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { parseHeadingId } from '@/utils/parseHeadingId';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { parseHeadingId } from "@/utils/parseHeadingId";
 
 const childrenIsAnImage = (children) => {
   // 实现检查children是否为图片的逻辑
-  return children && children[0] && children[0].type === 'img';
+  return children && children[0] && children[0].type === "img";
 };
 
 const MDComponents = {
   p: ({ children }) => {
     if (childrenIsAnImage(children)) {
-      const { src, alt = '' } = children[0].props;
+      const { src, alt = "" } = children[0].props;
       return (
         <div className="my-4">
           <Image
@@ -31,8 +31,8 @@ const MDComponents = {
 
   a: ({ children, href }) => {
     const isExternal =
-      href.startsWith('http') && !href.includes('yourwebsite.com');
-    const linkClass = 'text-accent hover:underline';
+      href.startsWith("http") && !href.includes("yourwebsite.com");
+    const linkClass = "text-accent hover:underline";
 
     if (isExternal) {
       return (

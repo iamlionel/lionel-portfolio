@@ -1,6 +1,6 @@
-'use client';
-import React, { useState } from 'react';
-import DocLinks from './DocLinks';
+"use client";
+import React, { useState } from "react";
+import DocLinks from "./DocLinks";
 
 const DocsNav = ({ navLinks }) => {
   const [isMobileAccordionOpen, setMobileAccordionState] = useState(false);

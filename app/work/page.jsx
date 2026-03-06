@@ -1,51 +1,80 @@
-'use client';
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+"use client";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
-import { BsArrowUpRight, BsGithub } from 'react-icons/bs';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
-import 'swiper/css';
-import WorkSliderBtns from '@/components/WorkSliderBtns';
+} from "@/components/ui/tooltip";
+import WorkSliderBtns from "@/components/WorkSliderBtns";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 const projects = [
   {
-    num: '01',
-    category: 'frontend',
-    title: 'project 1',
+    num: "01",
+    category: "Lyra Voice Assistant",
+    title: "project 1",
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sed odio quaerat ducimus omnis reprehenderit.',
-    stack: [{ name: 'Html 5' }, { name: 'Css 3' }, { name: 'Javascript' }],
-    image: '/assets/work/thumb1.png',
-    live: '',
-    github: '',
+      "Based on self-developed full-chain speech and language interaction technology，LLM（AISPEECH DFM）and big data, AISpeech has launched 1+N Reliable Distributed LLM Agent System, connecting language processing and model ecosystems, forming an ecological circle for the automotive vertical domain. ",
+    stack: [
+      { name: "Android" },
+      { name: "Kotlin" },
+      { name: "AISpeech DUI" },
+      { name: "AISpeech DFM" },
+    ],
+    image: "/assets/work/thumb1.png",
+    live: "https://en.aispeech.com/carbusiness",
+    github: "",
   },
   {
-    num: '02',
-    category: 'fullstack',
-    title: 'project 2',
+    num: "02",
+    category: "AI TV Assistant",
+    title: "project 2",
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sed odio quaerat ducimus omnis reprehenderit.',
-    stack: [{ name: 'Next.js' }, { name: 'Tailwind.css' }, { name: 'Node.js' }],
-    image: '/assets/work/thumb2.png',
-    live: '',
-    github: '',
+      "A smart TV voice interaction solution based on IFlyTek's advanced speech recognition and natural language processing. It enables seamless voice control, multi-device interconnection, and personalized smart home experiences for the big-screen ecosystem.",
+    stack: [
+      { name: "Android" },
+      { name: "IOT" },
+      { name: "Remote Controller" },
+    ],
+    image: "/assets/work/thumb2.png",
+    live: "http://tvoice.iflytek.com/product/studio/ai-tv-assistant/",
+    github: "",
   },
   {
-    num: '03',
-    category: '',
-    title: 'project 3',
+    num: "03",
+    category: "IFlytek Smart Assignments",
+    title: "project 3",
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sed odio quaerat ducimus omnis reprehenderit.',
-    stack: [{ name: 'Next.js' }, { name: 'Tailwind.css' }],
-    image: '/assets/work/thumb3.png',
-    live: '',
-    github: '',
+      "An intelligent homework and assessment platform for K-12 education. Utilizing AI-driven data analysis to provide personalized learning paths, automated grading, and insightful performance tracking for both teachers and students.",
+    stack: [
+      { name: "Android" },
+      { name: "Kotlin" },
+      { name: "AI Data Analysis" },
+    ],
+    image: "/assets/work/thumb3.png",
+    live: "https://edu.iflytek.com/solution/school/smart-assignments",
+    github: "",
+  },
+  {
+    num: "04",
+    category: "Biometric Intelligent Hardware & SDK",
+    title: "project 4",
+    description:
+      "A comprehensive biometric identification solution integrating facial recognition and fingerprint scanning with hardware systems. Built using Android and Kotlin to provide secure, high-performance access control and attendance management for enterprise environments.",
+    stack: [
+      { name: "Android" },
+      { name: "Kotlin" },
+      { name: "JNI" },
+      { name: "Deep Learning" },
+    ],
+    image: "/assets/work/thumb4.png",
+    live: "https://www.biometric.net.cn/home",
+    github: "",
   },
 ];
 
@@ -61,7 +90,7 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 0, duration: 0.1, ease: 'easeIn' },
+        transition: { delay: 0, duration: 0.1, ease: "easeIn" },
       }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
@@ -73,7 +102,7 @@ const Work = () => {
                 {project.num}
               </div>
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.category}
               </h2>
               <p className="text-white/60">{project.description}</p>
               <ul className="flex gap-4">
@@ -81,14 +110,18 @@ const Work = () => {
                   return (
                     <li key={index} className="text-xl text-accent">
                       {item.name}
-                      {index != project.stack.length - 1 && ','}
+                      {index != project.stack.length - 1 && ","}
                     </li>
                   );
                 })}
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
-                <Link href={project.live}>
+                <Link
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -100,18 +133,24 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.github && (
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Github repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -131,7 +170,7 @@ const Work = () => {
                         <Image
                           src={project.image}
                           fill
-                          className="object-cover"
+                          className="object-fill"
                           alt=""
                         />
                       </div>
