@@ -1,7 +1,6 @@
 import { getKebabCaseFromName } from "./getKebabCaseFromName";
 
 export const parseHeadingId = (children) => {
-  console.log("PARSE_HEADING_ID INPUT:", JSON.stringify(children));
   const CHECK = "{#";
   const childrenArray = Array.isArray(children) ? children : [children];
   const lastChild = childrenArray[childrenArray.length - 1];

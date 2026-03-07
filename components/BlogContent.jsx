@@ -47,7 +47,7 @@ export default function BlogContent({
           )}
         </div>
         <div className="grid gap-4 lg:gap-8 grid-cols-1 xl:grid-cols-[1fr_260px]">
-          <div className="max-w-[768px] w-full overflow-auto">
+          <div className="max-w-[768px] w-full">
             <div className="[&>*:first-child]:mt-0">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
