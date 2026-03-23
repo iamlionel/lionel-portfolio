@@ -11,7 +11,7 @@ Welcome to my blog! I'm excited to finally have a space where I can share my tho
 
 This is where I document my technical growth and everyday thoughts. Topics include:
 
-- **🖥️ Full-Stack Development**: Frontend and backend practices with React, Next.js, Node.js, and TypeScript — plus deep dives into system design and performance optimization
+- **🖥️ Full-Stack Development**: Learning notes and engineering practices in Android, React, and Python full-stack development
 - **🤖 AI & Learning**: Hands-on experiences with LLMs, Prompt Engineering, RAG, and AI Agents, plus honest reflections on using AI tools in day-to-day development
 - **💡 Personal Thoughts**: My take on tech trends, industry shifts, and career growth — not authoritative, just genuine
 - **🛠️ Tools & Productivity**: Dev tools, VSCode setups, terminal tricks, and automation scripts that make life smoother

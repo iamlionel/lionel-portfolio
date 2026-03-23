@@ -1,12 +1,24 @@
-- id: "Frontend"
-  items:
-    - id: "React Fiber"
-      to: "/blog/frontend/react-fiber"
-- id: "Android"
-  items:
-    - id: "Kotlin 协程"
-      to: "/blog/mobile/coroutine"
 - id: "AI"
   items:
-    - id: "Transformer"
-      to: "/blog/ai/transformer"
+    - id: "AI学习路线"
+      to: "/blog/ai/roadmap"
+- id: "Mobile"
+  items:
+    - id: "Kotlin概览"
+      to: "/blog/mobile/kotlin"
+    - id: "Lifecycle源码解析"
+      to: "/blog/mobile/lifecycle"
+    - id: "LiveData源码解析"
+      to: "/blog/mobile/livedata"
+    - id: "ViewModel源码解析"
+      to: "/blog/mobile/viewmodel"
+- id: "Frontend"
+  items:
+    - id: "React概览"
+      to: "/blog/frontend/react"
+- id: "Tools"
+  items:
+    - id: "Git"
+      to: "/blog/tools/git"
+    - id: "Vim"
+      to: "/blog/tools/vim"

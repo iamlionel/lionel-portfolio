@@ -1,12 +1,24 @@
-- id: "Frontend"
-  items:
-    - id: "React Fiber"
-      to: "/blog/frontend/react-fiber"
-- id: "Mobile"
-  items:
-    - id: "Kotlin Coroutine"
-      to: "/blog/mobile/coroutine"
 - id: "AI"
   items:
-    - id: "Transformer"
-      to: "/blog/ai/transformer"
+    - id: "AI Roadmap"
+      to: "/blog/ai/roadmap"
+- id: "Mobile"
+  items:
+    - id: "Kotlin Overview"
+      to: "/blog/mobile/kotlin"
+    - id: "Lifecycle"
+      to: "/blog/mobile/lifecycle"
+    - id: "LiveData"
+      to: "/blog/mobile/livedata"
+    - id: "ViewModel"
+      to: "/blog/mobile/viewmodel"
+- id: "Frontend"
+  items:
+    - id: "React"
+      to: "/blog/frontend/react"
+- id: "Tools"
+  items:
+    - id: "Git"
+      to: "/blog/tools/git"
+    - id: "Vim"
+      to: "/blog/tools/vim"
