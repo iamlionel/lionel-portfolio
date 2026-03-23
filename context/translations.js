@@ -142,6 +142,18 @@ export const translations = {
           description:
             "A comprehensive biometric identification solution integrating facial recognition and fingerprint scanning with hardware systems. Built using Android and Kotlin to provide secure, high-performance access control and attendance management for enterprise environments.",
         },
+        {
+          num: "05",
+          category: "Flutter Wallet",
+          description:
+            "A multi-chain cryptocurrency wallet application built with Flutter, supporting Ethereum (EVM) and Solana chains. It features mnemonic generation, wallet import, token asset management, and QR code transfers.",
+        },
+        {
+          num: "06",
+          category: "ChatHub",
+          description:
+            "A modern Web-based AI aggregation conversation platform built with Next.js 16 and React 19. It seamlessly integrates cloud and local AI models (OpenAI, Claude, Gemini, Ollama) and prioritizes a Local First strategy with IndexedDB for privacy and security.",
+        },
       ],
     },
     contact: {
@@ -314,6 +326,18 @@ export const translations = {
           category: "生物识别智能硬件 & SDK",
           description:
             "集成了人脸识别、指纹扫描与硬件系统的多模态生物识别方案。采用 Android 和 Kotlin 开发，为企业环境提供安全、高性能的门禁考勤管理。",
+        },
+        {
+          num: "05",
+          category: "Flutter Wallet",
+          description:
+            "一个基于 Flutter 构建的多链加密货币钱包应用，支持以太坊（EVM）与 Solana 链，具备助记词生成、钱包导入、Token 资产管理、二维码收发等核心功能。",
+        },
+        {
+          num: "06",
+          category: "ChatHub",
+          description:
+            "基于 Next.js 16 和 React 19 构建的现代化 Web 版 AI 聚合对话平台。无缝集成主流语言模型 (OpenAI, Claude, Gemini, Ollama)，并采用 Local First 本地优先策略，所有数据存储在客户端 IndexedDB 中，确保数据隐私安全。",
         },
       ],
     },

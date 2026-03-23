@@ -66,6 +66,32 @@ const projectsData = [
     live: "https://www.biometric.net.cn/home",
     github: "",
   },
+  {
+    num: "05",
+    title: "project 5",
+    stack: [
+      { name: "Flutter" },
+      { name: "Dart" },
+      { name: "Web3" },
+      { name: "Riverpod" },
+    ],
+    image: "/assets/work/thumb5.png",
+    live: "",
+    github: "https://github.com/iamlionel/flutter_wallet",
+  },
+  {
+    num: "06",
+    title: "project 6",
+    stack: [
+      { name: "Next.js" },
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "LangChain" },
+    ],
+    image: "/assets/work/thumb6.png",
+    live: "",
+    github: "https://github.com/iamlionel/my-chathub",
+  },
 ];
 
 const Work = () => {
@@ -115,22 +141,24 @@ const Work = () => {
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
-                <Link
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{translations_work.liveProject}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live && (
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{translations_work.liveProject}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
                 {project.github && (
                   <Link
                     href={project.github}
